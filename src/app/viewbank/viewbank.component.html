@@ -1,0 +1,87 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded">
+          <div class="card-body container-fluid">
+            <div class="text-center mb-4">
+              <h2>View Bank Details</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="bankName" class="form-label"><b>Bank Name:</b></label>
+                  <p class="form-control">{{bank.bankName}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="bankAccountNumber" class="form-label"><b>Account Number:</b></label>
+                  <p class="form-control">{{bank.bankAccountNumber}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="accountType" class="form-label"><b>Account Type:</b></label>
+                  <p class="form-control">{{bank.accountType}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="branch" class="form-label"><b>Branch:</b></label>
+                  <p class="form-control">{{bank.branch}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="ifccode" class="form-label"><b>IFSC Code:</b></label>
+                  <p class="form-control">{{bank.ifccode}}</p>
+                </div>               
+                 
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="mcircode" class="form-label"><b>MICR Code:</b></label>
+                  <p class="form-control">{{bank.mcircode}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="accountHolderName" class="form-label"><b>Account Holder Name:</b></label>
+                  <p class="form-control">{{bank.accountHolderName}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="loginid" class="form-label"><b>Login Id:</b></label>
+                  <p class="form-control">{{bank.loginid}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label"><b>Email Id:</b></label>
+                  <p class="form-control">{{bank.email}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="mobileNo" class="form-label"><b>Contact Number:</b></label>
+                  <p class="form-control">{{bank.mobileNo}}</p>
+                </div>
+                              
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="primarysignatory" class="form-label"><b>Primary Signatory:</b></label>
+                  <p class="form-control">{{bank.primarysignatory}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="secondarysignatory" class="form-label"><b>Secondary Signatory:</b></label>
+                  <p class="form-control">{{bank.secondarysignatory}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="active" class="form-label"><b>Active:</b></label>
+                  <p class="form-control">{{bank?.active  ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mb-3">
+              <a href="#" routerLink="/banklist" routerLinkActive="active" class="me-2">
+                <button type="button" class="btn btn-back">
+                  <i class='bx bx-arrow-back'></i> Back
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

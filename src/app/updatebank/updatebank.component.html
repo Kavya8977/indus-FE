@@ -1,0 +1,122 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded">
+          <div class="card-body container-fluid">
+            <div class="text-center mb-4">
+              <h2>Update Bank</h2>
+            </div>
+            <form (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="bankName" class="form-label">Bank Name</label>
+                    <input type="text" class="form-control" id="bankName" placeholder="Enter Bank Name"
+                      [(ngModel)]="bank.bankName" name="bankName">
+                  </div>
+                  <div class="mb-3">
+                    <label for="Account" class="form-label">Account Number</label>
+                    <input type="number" class="form-control" id="Account" placeholder="Enter Account Number"
+                      [(ngModel)]="bank.bankAccountNumber" name="Account" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="city" class="form-label">Account Type</label><br>
+                    <select [(ngModel)]="bank.accountType" name="accountType" id="accountType" class="form-control" placeholder="--Select--" required>
+                      <option value="Current Account">Current Account</option>
+                      <option value="Loan Account">Loan Account</option>
+                      <option value="OverDraft Account">OverDraft Account</option>
+                      <option value="Bankgrantity Account">Bankgrantity Account </option>
+                      <option value="Demat/Trading Account">Demat/Trading Account</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="Branch" class="form-label">Branch</label>
+                    <input type="text" class="form-control" id="Branch" placeholder="Enter Branch"
+                      [(ngModel)]="bank.branch" name="Branch" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="IFSC" class="form-label">IFSC Code</label>
+                    <input type="text" class="form-control" id="IFSC" placeholder="Enter IFSC"
+                      [(ngModel)]="bank.ifccode" name="IFSC" required>
+                  </div>
+
+                </div>
+
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="Holder" class="form-label">Account Holder Name</label>
+                    <input type="text" class="form-control" id="Holder" placeholder="Enter Account Holder Name"
+                      [(ngModel)]="bank.accountHolderName" name="Holder" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="MICR" class="form-label">MICR Code</label>
+                    <input type="text" class="form-control" id="MICR" placeholder="Enter MICR Code"
+                      [(ngModel)]="bank.mcircode" name="MICR" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="coNumber" class="form-label">Login Id</label>
+                    <input type="text" class="form-control" id="coNumber" placeholder="Enter Login Id"
+                      [(ngModel)]="bank.loginid" name="coNumber" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="loginpassword" class="form-label">Login Password</label>
+                    <input type="password" class="form-control" id="loginpassword" placeholder="Enter Login Password"
+                      [(ngModel)]="bank.loginpassword" name="loginpassword" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="transpassword" class="form-label">Transaction Password</label>
+                    <input type="password" class="form-control" id="transpassword"
+                      placeholder="Enter Transaction password" [(ngModel)]="bank.transpassword" name="transpassword"
+                      required>
+                  </div>
+
+                </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email Id</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter Email Id"
+                      [(ngModel)]="bank.email" name="email" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="mobileNo" class="form-label">Contact Number</label>
+                    <input type="tel" class="form-control" id="mobileNo" placeholder="Enter Contact Number"
+                      [(ngModel)]="bank.mobileNo" name="mobileNo" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="signatory" class="form-label">Primary Signatory(Above 2500000)</label>
+                    <input type="text" class="form-control" id="signatory" placeholder="Enter Primary Signatory"
+                      [(ngModel)]="bank.primarysignatory" name="signatory" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="Secondary" class="form-label">Secondary Signatory(Upto 2500000)</label>
+                    <input type="text" class="form-control" id="Secondary" placeholder="Enter Secondary Signatory"
+                      [(ngModel)]="bank.secondarysignatory" name="Secondary" required>
+                  </div>
+                  <div class="mb-2" mt-4>
+                    <label for="active" class="form-label">Active:</label>&nbsp;
+                    <input type="radio" name="active" id="yes" [(ngModel)]="bank.active" value=true required> Yes&nbsp;
+                    <input type="radio" name="active" id="no" [(ngModel)]="bank.active" value=false required> No
+                  </div>
+
+                </div>
+              </div>
+              <div class="text-center mb-3">
+                <button type="submit" class="btn btn-submit mr-1">Update</button>
+                <a href="#" routerLink="/banklist" routerLinkActive="active" class="me-2">
+                  <button type="button" class="btn btn-back">
+                    <i class='bx bx-arrow-back'></i> Cancel
+                  </button>
+                </a>
+
+              </div>
+            </form><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

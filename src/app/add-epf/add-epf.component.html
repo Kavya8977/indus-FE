@@ -1,0 +1,107 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+    <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+    <div class="content-area w-100">
+      <app-header></app-header>
+      <div class="main-content p-3">
+        <div class="container mt-4">
+          <div class="card mt-2 p-3 mb-1 bg-body rounded">
+            <div class="card-body container-fluid">
+              <div class="text-center mb-4">
+                <h2>Employee Provident Fund Registration</h2>
+              </div>
+              <br>
+              <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="estid" class="form-label">Establishment ID</label>
+                      <input type="text" class="form-control" id="estid" placeholder="Enter Establishment ID" [(ngModel)]="epf.estid" formControlName="estid" name="estid">
+                      <div *ngIf="regForm.get('estid').touched && regForm.get('estid').hasError('required')" style="color: red;">
+                        Enter Establishment ID
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="lin" class="form-label">Labour Identification Number(LIN)</label>
+                      <input type="text" class="form-control" id="lin" placeholder="Enter LIN" [(ngModel)]="epf.lin" formControlName="lin" name="lin">
+                      <div *ngIf="regForm.get('lin').touched && regForm.get('lin').hasError('required')" style="color: red;">
+                        Enter LIN
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="niccode" class="form-label">National Industrial Classification Code(NIC)</label>
+                      <input type="text" class="form-control" id="niccode" placeholder="Enter NIC Code" [(ngModel)]="epf.niccode" formControlName="niccode" name="niccode">
+                      <div *ngIf="regForm.get('niccode').touched && regForm.get('niccode').hasError('required')" style="color: red;">
+                        Enter NIC Code
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="pfoffice" class="form-label">PF Office</label>
+                      <input type="text" class="form-control" id="pfoffice" placeholder="Enter PF Office" [(ngModel)]="epf.pfOfficeAddress" formControlName="pfOfficeAddress" name="pfoffice">
+                      <div *ngIf="regForm.get('pfOfficeAddress').touched && regForm.get('pfOfficeAddress').hasError('required')" style="color: red;">
+                        Enter PF Office
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="signatory" class="form-label">Signatory</label>
+                      <input type="text" class="form-control" id="signatory" placeholder="Enter Signatory" [(ngModel)]="epf.signatory" formControlName="signatory" name="signatory">
+                      <div *ngIf="regForm.get('signatory').touched && regForm.get('signatory').hasError('required')" style="color: red;">
+                        Enter Signatory
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="userid" class="form-label">User ID</label>
+                      <input type="text" class="form-control" id="userid" placeholder="Enter User ID" [(ngModel)]="epf.userid" formControlName="userid" name="userid">
+                      <div *ngIf="regForm.get('userid').touched && regForm.get('userid').hasError('required')" style="color: red;">
+                        Enter User ID
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="password" placeholder="Enter Password" [(ngModel)]="epf.password" formControlName="password" name="password">
+                      <div *ngIf="regForm.get('password').touched && regForm.get('password').hasError('required')" style="color: red;">
+                        Enter Password
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email" placeholder="Enter Email ID" [(ngModel)]="epf.emailId" formControlName="emailId" name="email">
+                      <div *ngIf="regForm.get('emailId').touched && regForm.get('emailId').hasError('emailId')" style="color: red;">
+                        Enter a valid Email ID
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="mobileNo" class="form-label">Mobile Number</label>
+                      <input type="tel" class="form-control" id="mobileNo" placeholder="Enter Mobile Number" [(ngModel)]="epf.mobileNo" formControlName="mobileNo" name="mobileNo">
+                      <div *ngIf="regForm.get('mobileNo').touched && regForm.get('mobileNo').hasError('required')" style="color: red;">
+                        Enter Mobile Number
+                      </div>
+                    </div>
+                    <div class="mb-2 mt-4">
+                      <label for="active" class="form-label">Active:</label>&nbsp;
+                      <input type="radio" name="active" id="yes" [(ngModel)]="epf.active" formControlName="active" value=true> Yes&nbsp;
+                      <input type="radio" name="active" id="no" [(ngModel)]="epf.active" formControlName="active" value=false> No
+                      <div *ngIf="regForm.get('active').touched && regForm.get('active').hasError('required')" style="color: red;">
+                        Select Active status
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mb-3">
+                  <a href="#" routerLink="/epflist" routerLinkActive="active" class="me-2">
+                    <button type="button" class="btn btn-back">
+                      <i class='bx bx-arrow-back'></i> Back
+                    </button>
+                  </a>
+                  <button type="submit" class="btn btn-primary" [disabled]="regForm.invalid">Submit</button>
+                </div>
+              </form><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+  

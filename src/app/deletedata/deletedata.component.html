@@ -1,0 +1,13 @@
+<mat-card class="delete-card">
+    <mat-card-header>
+      <mat-card-title class="text-center">Are you sure?</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Do you really want to delete this item?</p>
+    </mat-card-content>
+    <mat-card-actions align="end" class="buttons">
+      <button mat-button (click)="onCancel()">NO</button>
+      <button mat-button (click)="onDelete()" color="warn">YES</button>
+    </mat-card-actions>
+  </mat-card>
+  

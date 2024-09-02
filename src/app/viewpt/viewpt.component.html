@@ -1,0 +1,69 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded">
+          <div class="card-body container-fluid">
+            <div class="text-center mb-4">
+              <h2>View Professional Tax Details</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="cname" class="form-label"><b>PTIN Company:</b></label>
+                  <p class="form-control">{{pt.ptinCom}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="city" class="form-label"><b>PTIN Salary:</b></label>
+                  <p class="form-control">{{pt.ptinSal}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label"><b>Date of Enrollment:</b></label>
+                  <p class="form-control">{{pt.dateOfEnrollment}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label"><b>Tax Division:</b></label>
+                  <p class="form-control">{{pt.taxDivision}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="webAddress" class="form-label"><b>State/Tax Circle:</b></label>
+                  <p class="form-control">{{pt.taxCircle}}</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="state" class="form-label"><b>User Id:</b></label>
+                  <p class="form-control">{{pt.userid}}</p>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="contactNumber" class="form-label"><b>Email ID:</b></label>
+                  <p class="form-control">{{pt.email}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="contactNumber" class="form-label"><b>Mobile Number:</b></label>
+                  <p class="form-control">{{pt.mobileNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="contactNumber" class="form-label"><b>Active:</b></label>
+                  <p class="form-control">{{pt?.active ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+               
+            </div>
+            <div class="text-center mb-3">
+              <a href="#" routerLink="/ptlist" routerLinkActive="active" class="me-2">
+                <button type="button" class="btn btn-back">
+                  <i class='bx bx-arrow-back'></i> Back
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

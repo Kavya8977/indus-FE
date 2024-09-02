@@ -1,0 +1,81 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded">
+          <div class="card-body container-fluid">
+            <div class="text-center mb-4">
+              <h2>View Income Tax Information Details</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="cname" class="form-label"><b>Name On PAN:</b></label>
+                  <p class="form-control">{{tax.name}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="city" class="form-label"><b>PAN Number:</b></label>
+                  <p class="form-control">{{tax.panNumber}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label"><b>Date of Incorporation:</b></label>
+                  <p class="form-control">{{tax.incorporationDate}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label"><b>PAN Issued Date:</b></label>
+                  <p class="form-control">{{tax.panIssuedDate}}</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="state" class="form-label"><b>User Id:</b></label>
+                  <p class="form-control">{{tax.userid}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="webAddress" class="form-label"><b>Primary Mobile:</b></label>
+                  <p class="form-control">{{tax.primaryMobile}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="contactNumber" class="form-label"><b>Secondary Mobile:</b></label>
+                  <p class="form-control">{{tax.secondaryMobile}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="contactNumber" class="form-label"><b>Primary Email:</b></label>
+                  <p class="form-control">{{tax.primaryEmail}}</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="contactNumber" class="form-label"><b>Secondary Email:</b></label>
+                  <p class="form-control">{{tax.secondaryEmail}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="contactNumber" class="form-label"><b>Primary Signatory:</b></label>
+                  <p class="form-control">{{tax.primarysignatory}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="contactNumber" class="form-label"><b>Secondary Signatory:</b></label>
+                  <p class="form-control">{{tax.secondarysignatory}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="contactNumber" class="form-label"><b>Active:</b></label>
+                  <p class="form-control">{{tax?.active ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mb-3">
+              <a href="#" routerLink="/incometaxlist" routerLinkActive="active" class="me-2">
+                <button type="button" class="btn btn-back">
+                  <i class='bx bx-arrow-back'></i> Back
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

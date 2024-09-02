@@ -1,0 +1,28 @@
+.header {
+    position: relative;
+    width: calc(100% - 32px);
+    height: 66px;
+    margin: 16px;
+    margin-top: 5px;
+    border-radius: 10px;
+    /* background-size: cover; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(57, 63, 129);
+    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(2, 2, 3, 1) 15%, rgba(57, 63, 129, 1) 100%);
+}
+
+h2 {
+    margin: 0;
+    margin-left: 10px;
+}
+
+.container-fluid {
+    display: flex;
+}
+
+#icon {
+    padding-left: 30px;
+    height: 60px;
+}

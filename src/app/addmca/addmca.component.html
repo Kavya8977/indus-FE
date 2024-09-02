@@ -1,0 +1,184 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+    <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+    <div class="content-area w-100">
+        <app-header></app-header>
+        <div class="main-content p-3">
+            <div class="container mt-4">
+                <div class="card mt-2 p-3 mb-1 bg-body rounded">
+                    <div class="card-body container-fluid">
+                        <div class="text-center mb-4">
+                            <h2>Ministry of Corporate Affairs Registration</h2>
+                        </div>
+                        <div class="text-end">
+                        </div><br>
+                        <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="cin" class="form-label">Corporate Identification Number(CIN)</label>
+                                        <input type="text" class="form-control" id="cin" placeholder="Enter Corporate Identification Number" [(ngModel)]="mca.cin" formControlName="cin" name="cin">
+                                        <div *ngIf="regForm.get('cin').touched && regForm.get('cin').hasError('required')" style="color: red;">
+                                            Enter CIN
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="registrationNo" class="form-label">Registration Number</label>
+                                        <input type="text" class="form-control" id="registrationNo" placeholder="Enter Registration Number" [(ngModel)]="mca.registrationNo" formControlName="registrationNo" name="registrationNo">
+                                        <div *ngIf="regForm.get('registrationNo').touched && regForm.get('registrationNo').hasError('required')" style="color: red;">
+                                            Enter Registration Number
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="rocName" class="form-label">Registrar of Companies Name</label>
+                                        <input type="text" class="form-control" id="rocName" placeholder="Enter Registrar of Companies Name" [(ngModel)]="mca.rocName" formControlName="rocName" name="rocName">
+                                        <div *ngIf="regForm.get('rocName').touched && regForm.get('rocName').hasError('required')" style="color: red;">
+                                            Enter ROC Name
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="classOfCompany" class="form-label">Class Of Company</label>
+                                        <input type="text" class="form-control" id="classOfCompany" placeholder="Enter Class Of Company" [(ngModel)]="mca.classOfCompany" formControlName="classOfCompany" name="classOfCompany">
+                                        <div *ngIf="regForm.get('classOfCompany').touched && regForm.get('classOfCompany').hasError('required')" style="color: red;">
+                                            Enter Class Of Company
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="authorisedCapital" class="form-label">Authorized Capital</label>
+                                        <input type="text" class="form-control" id="authorisedCapital" placeholder="Enter Class Of Company" [(ngModel)]="mca.authorisedCapital" formControlName="authorisedCapital" name="authorisedCapital">
+                                        <div *ngIf="regForm.get('authorisedCapital').touched && regForm.get('authorisedCapital').hasError('required')" style="color: red;">
+                                            Enter Authorized Capital
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Email" class="form-label">Email Id</label>
+                                        <input type="text" class="form-control" id="Email" placeholder="Enter Email" [(ngModel)]="mca.email" formControlName="email" name="Email">
+                                        <div *ngIf="regForm.get('email').touched && regForm.get('email').hasError('required')" style="color: red;">
+                                            Enter Email Id
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Mobile" class="form-label">Mobile Number</label>
+                                        <input type="tel" class="form-control" id="Mobile" placeholder="Enter Mobile Number" [(ngModel)]="mca.mobileNo" formControlName="mobileNo" name="Mobile">
+                                        <div *ngIf="regForm.get('mobileNo').touched && regForm.get('mobileNo').hasError('required')" style="color: red;">
+                                            Enter Mobile Number
+                                          </div>
+                                    </div>
+                                                                        
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="v2emailId" class="form-label">V2 Email Id</label>
+                                        <input type="email" class="form-control" id="v2emailId" placeholder="Enter V2 Email Id" [(ngModel)]="mca.v2emailId" formControlName="v2emailId" name="v2emailId">
+                                        <div *ngIf="regForm.get('v2emailId').touched && regForm.get('v2emailId').hasError('required')" style="color: red;">
+                                            Enter V2 Email Id
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="v2loginid" class="form-label">V2 Login Id</label>
+                                        <input type="text" class="form-control" id="v2loginid" placeholder="Enter V2 Login Id" [(ngModel)]="mca.v2loginid" formControlName="v2loginid" name="v2loginid">
+                                        <div *ngIf="regForm.get('v2loginid').touched && regForm.get('v2loginid').hasError('required')" style="color: red;">
+                                            Enter V2 Login Id
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="v3loginid" class="form-label">V3 Login Id</label>
+                                        <input type="text" class="form-control" id="v3loginid" placeholder="Enter V3 Login Id" [(ngModel)]="mca.v3loginid" formControlName="v3loginid" name="v3loginid">
+                                        <div *ngIf="regForm.get('v3loginid').touched && regForm.get('v3loginid').hasError('required')" style="color: red;">
+                                            Enter V3 Login Id
+                                          </div>
+                                    </div>
+                                    <!-- <div class="mb-3">
+                                        <label for="companyName" class="form-label">Company Name</label>
+                                        <input type="text" class="form-control" id="companyName" placeholder="Enter Company Name" [(ngModel)]="mca.companyName" formControlName="companyName" name="companyName">
+                                        <div *ngIf="regForm.get('companyName').touched && regForm.get('companyName').hasError('required')" style="color: red;">
+                                            Enter Company Name
+                                          </div>
+                                    </div> -->
+                                    <div class="mb-3">
+                                        <label for="dateOfIncorporation" class="form-label">Date Of Incorporation</label>
+                                        <input type="date" class="form-control" id="dateOfIncorporation" placeholder="Enter Date Of Incorporation" [(ngModel)]="mca.dateOfIncorporation" formControlName="dateOfIncorporation" name="dateOfIncorporation">
+                                        <div *ngIf="regForm.get('dateOfIncorporation').touched && regForm.get('dateOfIncorporation').hasError('required')" style="color: red;">
+                                            Enter Date Of Incorporation
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="registeredAddress" class="form-label">Registered Address</label>
+                                        <input type="text" class="form-control" id="registeredAddress" placeholder="Enter Registered Address" [(ngModel)]="mca.registeredAddress" formControlName="registeredAddress" name="registeredAddress">
+                                        <div *ngIf="regForm.get('registeredAddress').touched && regForm.get('registeredAddress').hasError('required')" style="color: red;">
+                                            Enter Registered Address
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Stock" class="form-label">Stock Exchanges</label>
+                                        <input type="text" class="form-control" id="Stock" placeholder="Enter Stock Exchanges" [(ngModel)]="mca.stockExchanges" formControlName="stockExchanges" name="Stock">
+                                        <div *ngIf="regForm.get('stockExchanges').touched && regForm.get('stockExchanges').hasError('required')" style="color: red;">
+                                            Enter Stock Exchanges
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Paid" class="form-label">Paid Up Capital</label>
+                                        <input type="text" class="form-control" id="Paid" placeholder="Enter Paid Up Capital" [(ngModel)]="mca.paidUpCapital" formControlName="paidUpCapital" name="Paid">
+                                        <div *ngIf="regForm.get('paidUpCapital').touched && regForm.get('paidUpCapital').hasError('required')" style="color: red;">
+                                            Enter Paid Up Capital
+                                          </div>
+                                    </div>
+                                </div>
+                                    <div class="col-md-4">
+                                    
+                                    <div class="mb-3">
+                                        <label for="Telephone" class="form-label">Telephone</label>
+                                        <input type="tel" class="form-control" id="Telephone" placeholder="Enter Telephone" [(ngModel)]="mca.telephone" formControlName="telephone" name="Telephone">
+                                        <div *ngIf="regForm.get('telephone').touched && regForm.get('telephone').hasError('required')" style="color: red;">
+                                            Enter Telephone
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="v3emailId" class="form-label">V3 Email Id</label>
+                                        <input type="text" class="form-control" id="v3emailId" placeholder="Enter V3 Email Id" [(ngModel)]="mca.v3emailId" formControlName="v3emailId" name="v3emailId">
+                                        <div *ngIf="regForm.get('v3emailId').touched && regForm.get('v3emailId').hasError('required')" style="color: red;">
+                                            Enter V3 Email Id
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="v2password" class="form-label">V2 Password</label>
+                                        <input type="password" class="form-control" id="v2password" placeholder="Enter V2 Password" [(ngModel)]="mca.v2password" formControlName="v2password" name="v2password">
+                                        <div *ngIf="regForm.get('v2password').touched && regForm.get('v2password').hasError('required')" style="color: red;">
+                                            Enter V2 Password
+                                          </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="v3password" class="form-label">V3 Password</label>
+                                        <input type="password" class="form-control" id="v3password" placeholder="Enter V3 Password" [(ngModel)]="mca.v3password" formControlName="v3password" name="v3password">
+                                        <div *ngIf="regForm.get('v3password').touched && regForm.get('v3password').hasError('required')" style="color: red;">
+                                            Enter V3 Password
+                                          </div>
+                                    </div> 
+                                    <div class="mb-2 mt-4">
+                                        <label for="active" class="form-label">Active:</label>&nbsp;
+                                        <input type="radio" name="active" id="yes" [(ngModel)]="mca.active" formControlName="active" value=true> Yes&nbsp;
+                                        <input type="radio" name="active" id="no" [(ngModel)]="mca.active" formControlName="active" value=false> No
+                                    </div>
+                                    <div *ngIf="regForm.get('active').touched && regForm.get('active').hasError('required')" style="color: red;">
+                                        Select Active status
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="text-center mb-3">
+                                <a href="#" routerLink="/mcalist" routerLinkActive="active" class="me-2">
+                                    <button type="button" class="btn btn-back">
+                                        <i class='bx bx-arrow-back'></i> Back
+                                    </button>
+                                </a>
+                                <button type="submit" class="btn btn-primary" [disabled]="regForm.invalid">Submit</button>
+                            </div>
+                        </form><br> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
+
+
+

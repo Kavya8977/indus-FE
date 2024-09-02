@@ -1,0 +1,99 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+    <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+    <div class="content-area w-100">
+      <app-header></app-header>
+      <div class="main-content p-3">
+        <div class="container mt-4">
+          <div class="card bg-body rounded shadow-sm">
+            <div class="card-body container-fluid">
+              <nav class="navbar navbar-light bg-light rounded mb-4 search-bar">
+                <div class="container-fluid">
+                  <h4 class="card-title mb-0"> Ministry of Corporate Affairs List:</h4>
+                  <form class="d-flex mb-1">
+                    <mat-form-field class="example-full-width flex-grow-1">
+                      <mat-label>Search</mat-label>
+                      <input matInput [(ngModel)]="searchQuery" (keyup)="applyFilter($event)" placeholder="Search"
+                        aria-label="Search" name="searchQuery" />
+                      <button mat-icon-button matSuffix class="text-dark">
+                        <mat-icon>search</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </form>
+                </div>
+              </nav>
+              <div class="table-responsive rounded">
+                <table class="table table-bordered table-hover">
+                  <thead class="table-secondary text-center">
+                    <tr>
+                      <th style="background-color: #b1d3ea;" scope="col">CIN</th>
+                      <th style="background-color: #b1d3ea;" scope="col">V2 Login Id</th>
+                      <th style="background-color: #b1d3ea;" scope="col">V2 Password</th>
+                      <th style="background-color: #b1d3ea;" scope="col">V3 Login Id</th>
+                      <th style="background-color: #b1d3ea;" scope="col">V3 Password</th>
+                      <th style="background-color: #b1d3ea;" scope="col">View</th>
+                      <th style="background-color: #b1d3ea;" scope="col">Edit</th>
+                      <th style="background-color: #b1d3ea;" scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let mca of mcadetails | filter : searchQuery">
+                      <ng-container *ngIf="mca.active">
+                      <td>{{ mca.cin }}</td>
+                      <td>{{ mca.v3loginid }}</td>
+                      <!-- <td>{{ gst.IFCcode }}</td> -->
+                      <td style="display: flex; justify-content: center;"><p style="font-size: 40px;" (click)="getv2password(mca.id)"><i class='bx bx-shield-quarter'></i></p>
+                        <div *ngIf="selectedv2McaId === mca.id" class="card" style="position: absolute; z-index: 1; margin-top: 40px; background: #fff; padding: 10px; border: 1px solid #ccc;">
+                          <div class="card-body">
+                            <p>Password: {{ decryptedv2Password }}</p>
+                            <button (click)="clearDecryptedv2Password()" class="btn btn-sm btn-secondary">Close</button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>{{ mca.v2loginid }}</td>
+                      <!-- <td>{{ gst.IFCcode }}</td> -->
+                      <td style="display: flex; justify-content: center;"><p style="font-size: 40px;" (click)="getv3password(mca.id)"><i class='bx bx-shield-quarter'></i></p>
+                        <div *ngIf="selectedv3McaId === mca.id" class="card" style="position: absolute; z-index: 1; margin-top: 40px; background: #fff; padding: 10px; border: 1px solid #ccc;">
+                          <div class="card-body">
+                            <p>Password: {{ decryptedv3Password }}</p>
+                            <button (click)="clearDecryptedv3Password()" class="btn btn-sm btn-secondary">Close</button>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span (click)="mcaView(mca.id)" class=" text-primary"><strong style="font-size: 30px;">
+                          <i class="bi bi-eye-slash-fill"></i></strong>
+                        </span>
+                      </td>
+                      <td class="text-center">
+                        <span (click)="updateMca(mca.id)" class=" text-info ml-2" style="font-size: 24px;">
+                          <i class="fa-solid fa-pen-to-square"></i>
+                        </span>
+                      </td>
+                      <td class="text-center">
+                        <span (click)="deleteMca(mca.id)" class=" text-danger ml-2" style="font-size: 24px;">
+                          <i class="fa-solid fa-trash"></i>
+                        </span>
+                      </td>
+                       
+                    </ng-container>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                  aria-label="Select page of periodic elements"></mat-paginator>
+                  <div class="text-start mt-4">
+                    <button type="button" class="btn btn-secondary add-new-button"
+                      style="background-color: rgba(57, 63, 129, 1);">
+                      <a class="navbar-brand text-light" href="#" routerLink="/addmca" routerLinkActive="active">
+                        <i class="fa-solid fa-circle-plus"></i>&nbsp;Add New
+                      </a>
+                    </button>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+  <app-footer></app-footer>

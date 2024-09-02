@@ -1,0 +1,86 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded">
+          <div class="card-body container-fluid">
+            <div class="text-center mb-4">
+              <h2>Update Goods and Services Tax</h2>
+            </div>
+            <form (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-4">
+                   
+                  <div class="mb-3">
+                    <label for="gstNumber" class="form-label">GST Number</label>
+                    <input type="text" class="form-control" id="gstNumber" placeholder="Enter GST Number"
+                      [(ngModel)]="gst.gstNumber" name="gstNumber">
+                  </div>
+                  <div class="mb-3">
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" class="form-control" id="state" placeholder="Enter State"
+                      [(ngModel)]="gst.state" name="state">
+                  </div>
+                  <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter Address"
+                      [(ngModel)]="gst.address" name="address">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                   
+                  <div class="mb-3">
+                    <label for="userid" class="form-label">User Id</label>
+                    <input type="text" class="form-control" id="userid" placeholder="Enter User Id"
+                      [(ngModel)]="gst.userid" name="userid">
+                  </div>
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password"
+                      [(ngModel)]="gst.password" name="password">
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email Id</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter Email Id"
+                      [(ngModel)]="gst.email" name="email">
+                  </div>
+                  
+                </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="mobileno" class="form-label">Mobile Number</label>
+                    <input type="tel" class="form-control" id="mobileno" placeholder="Enter Phone Number"
+                      [(ngModel)]="gst.mobileno" name="mobileno">
+                  </div>
+                  <div class="mb-3">
+                    <label for="signatory" class="form-label">Signatory</label>
+                    <input type="text" class="form-control" id="signatory" placeholder="Enter Signatory"
+                      [(ngModel)]="gst.signatory" name="signatory">
+                  </div>
+                  <div class="mt-5 mb-3">
+                    <label for="active" class="form-label">Active:</label>
+                    <input type="radio" name="active" id="yes" [(ngModel)]="gst.active" value=true> Yes
+                    <input type="radio" name="active" id="no" [(ngModel)]="gst.active" value=false> No
+                </div> 
+                   
+                </div>
+              </div>
+              <div class="text-center mb-3">
+                <button type="submit" class="btn btn-submit mr-1">Update</button>
+                <a href="#" routerLink="/gstlist" routerLinkActive="active" class="me-2">
+                  <button type="button" class="btn btn-back">
+                    <i class='bx bx-arrow-back'></i> Cancel
+                  </button>
+                </a>
+
+              </div>
+            </form><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

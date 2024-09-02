@@ -1,0 +1,105 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded">
+          <div class="card-body container-fluid">
+            <div class="text-center mb-4">
+              <h2>View Ministry of Corporate Affairs Details</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="cin" class="form-label"><b>Corporate Identification Number:</b></label>
+                  <p class="form-control">{{mca.cin}}</p>
+                </div>
+                <!-- <div class="mb-3">
+                  <label for="companyName" class="form-label"><b>Company Name:</b></label>
+                  <p class="form-control">{{mca.companyName}}</p>
+                </div> -->
+                <div class="mb-3">
+                  <label for="registrationNo" class="form-label"><b>Registration Number:</b></label>
+                  <p class="form-control">{{mca.registrationNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="dateOfIncorporation" class="form-label"><b>Date Of Incorporation:</b></label>
+                  <p class="form-control">{{mca.dateOfIncorporation}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="rocName" class="form-label"><b> Registrar of Company Name:</b></label>
+                  <p class="form-control">{{mca.rocName}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="registeredAddress" class="form-label"><b>Registered Address:</b></label>
+                  <p class="form-control">{{mca.registeredAddress}}</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="classOfCompany" class="form-label"><b>Class Of Company:</b></label>
+                  <p class="form-control">{{mca.classOfCompany}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="stockExchanges" class="form-label"><b>Stock Exchanges:</b></label>
+                  <p class="form-control">{{mca.stockExchanges}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="authorisedCapital" class="form-label"><b>Authorized Capital:</b></label>
+                  <p class="form-control">{{mca.authorisedCapital}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="paidUpCapital" class="form-label"><b>Paid Up Capital:</b></label>
+                  <p class="form-control">{{mca.paidUpCapital}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label"><b>Email Id:</b></label>
+                  <p class="form-control">{{mca.email}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="telephone" class="form-label"><b>Telephone Number:</b></label>
+                  <p class="form-control">{{mca.telephone}}</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="mobileNo" class="form-label"><b>Mobile Number:</b></label>
+                  <p class="form-control">{{mca.mobileNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="v2emailId" class="form-label"><b>V2 Email Id:</b></label>
+                  <p class="form-control">{{mca.v2emailId}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="v3emailId" class="form-label"><b>V3 Email Id:</b></label>
+                  <p class="form-control">{{mca.v3emailId}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="v2loginid" class="form-label"><b>V2 Login Id:</b></label>
+                  <p class="form-control">{{mca.v2loginid}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="v3loginid" class="form-label"><b>V3 Login Id:</b></label>
+                  <p class="form-control">{{mca.v3loginid}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="active" class="form-label"><b>Active:</b></label>
+                  <p class="form-control">{{mca?.active ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mb-3">
+              <a href="#" routerLink="/mcalist" routerLinkActive="active" class="me-2">
+                <button type="button" class="btn btn-back">
+                  <i class='bx bx-arrow-back'></i> Back
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

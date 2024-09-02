@@ -1,0 +1,65 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded">
+          <div class="card-body container-fluid">
+            <div class="text-center mb-4">
+              <h2>View Goods and services tax Details</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="gstNumber" class="form-label"><b>Goods and services tax Number:</b></label>
+                  <p class="form-control">{{gst.gstNumber}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="state" class="form-label"><b>State:</b></label>
+                  <p class="form-control">{{gst.state}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="address" class="form-label"><b>Address:</b></label>
+                  <p class="form-control">{{gst.address}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="userid" class="form-label"><b>User Id:</b></label>
+                  <p class="form-control">{{gst.userid}}</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="email" class="form-label"><b>Email Id:</b></label>
+                  <p class="form-control">{{gst.email}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="mobileno" class="form-label"><b>Mobile Number:</b></label>
+                  <p class="form-control">{{gst.mobileno}}</p>
+                </div>
+
+                <div class="mb-3">
+                  <label for="signatory" class="form-label"><b>Signatory:</b></label>
+                  <p class="form-control">{{gst.signatory}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="active" class="form-label"><b>Active:</b></label>
+                  <p class="form-control">{{gst?.active ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+
+            </div>
+            <div class="text-center mb-3">
+              <a href="#" routerLink="/gstlist" routerLinkActive="active" class="me-2">
+                <button type="button" class="btn btn-back">
+                  <i class='bx bx-arrow-back'></i> Back
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

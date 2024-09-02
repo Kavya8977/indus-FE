@@ -1,0 +1,70 @@
+<!-- 
+<div class="container">
+    <h2>Login with Phone Number and OTP</h2>
+    <form (ngSubmit)="login()">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" [(ngModel)]="phone" [disabled]="isPhoneDisabled" required>
+      <button type="button" (click)="requestOtp()" [disabled]="otpRequested">Request OTP</button>
+      <br><br>
+      <label for="otp">Enter OTP:</label>
+      <input type="text" id="otp" name="otp" [(ngModel)]="otp" required [disabled]="!otpRequested">
+      <button type="submit" [disabled]="!otpRequested">Login</button>
+    </form>
+  </div>
+   -->
+
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- <body> -->
+  <app-header></app-header>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <h2 class="text-center text-light">Login</h2>
+        <form id="mobile-form mb-4">
+          <div class="form-group">
+            <label for="mobileNumber">Mobile Number</label>
+            <input type="text" class="form-control" id="mobileNumber" required>
+          </div>
+          <button type="button" class="btn btn-primary btn-block" id="sendOtpButton" style="background-color: #393f81;">Send OTP</button>
+        </form>
+        <form id="otp-form mb-4" style="display: none;">
+          <div class="form-group">
+            <label for="otp">OTP</label>
+            <input type="text" class="form-control" id="otp" required>
+          </div>
+          <button type="button" class="btn btn-primary btn-block" id="verifyOtpButton" style="background-color: #393f81;">Verify OTP</button>
+        </form>
+        <hr>
+        <a class="small text-white mt-3" routerLink="/login" routerLinkActive="active">log in with UserNamePassword?</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('sendOtpButton').addEventListener('click', function() {
+      var mobileNumber = document.getElementById('mobileNumber').value;
+      if (mobileNumber) {
+        // Logic to send OTP goes here
+        console.log('Sending OTP to', mobileNumber);
+        document.getElementById('mobile-form').style.display = 'none';
+        document.getElementById('otp-form').style.display = 'block';
+      }
+    });
+
+    document.getElementById('verifyOtpButton').addEventListener('click', function() {
+      var otp = document.getElementById('otp').value;
+      if (otp) {
+        // Logic to verify OTP goes here
+        console.log('Verifying OTP', otp);
+        // Add your OTP verification logic here
+      }
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- </body> -->
+<app-footer></app-footer>

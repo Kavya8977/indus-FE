@@ -1,0 +1,99 @@
+<app-header></app-header>
+<div id="mg" class="container mt-5 h-100 d-flex justify-content-center align-items-center">
+  <div class="row justify-content-center w-100">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card bg-light h-100">
+        <article class="card-body mx-auto">
+          <h4 class="card-title mt-3 text-center">Create Account</h4>
+          <p class="divider-text">
+            <span class="bg-light"></span>
+          </p>
+          <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+            <!-- Username -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+              </div>
+              <input formControlName="userName" class="form-control" placeholder="Full name" type="text">
+            </div>
+            <div *ngIf="adminForm.get('userName').invalid && adminForm.get('userName').touched" class="text-danger">
+              <p>Username is required and must contain only letters and spaces</p>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group input-group mt-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+              </div>
+              <input formControlName="email" class="form-control" placeholder="Email address" type="email">
+            </div>
+            <div *ngIf="adminForm.get('email').invalid && adminForm.get('email').touched" class="text-danger">
+              <p>Valid email is required</p>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group input-group mt-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-phone"></i></span>
+              </div>
+              <input formControlName="mobile" class="form-control" placeholder="Phone number" type="text">
+            </div>
+            <div *ngIf="adminForm.get('mobile').invalid && adminForm.get('mobile').touched" class="text-danger">
+              <p>Valid 10-digit phone number is required</p>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group input-group mt-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+              </div>
+              <input formControlName="password" class="form-control" placeholder="Create password" type="password">
+            </div>
+            <div *ngIf="adminForm.get('password').invalid && adminForm.get('password').touched" class="text-danger">
+              <p>Password must be at least 8 characters long, contain one capital letter and one special character</p>
+            </div>
+
+            <!-- Repeat Password -->
+            <div class="form-group input-group mt-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+              </div>
+              <input formControlName="repeatPassword" class="form-control" placeholder="Confirm password" type="password">
+            </div>
+            <div *ngIf="adminForm.hasError('mismatch') && adminForm.get('repeatPassword').touched" class="text-danger">
+              
+            </div>
+
+            <!-- Role Selection -->
+            <div class="form-group mt-3">
+              <label for="role">Select Role:</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <select formControlName="role" class="custom-select">
+                  <option value="ROLE_USER" selected>User</option>
+                  <option value="ROLE_ADMIN">Admin</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Backend Response Message -->
+            <div *ngIf="responseMessage" class="form-group mt-3">
+              <p class="text-center text-info">{{ responseMessage }}</p>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group mt-3">
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="!isValidForm()">Create Account</button>
+            </div>
+
+            <!-- Login Link -->
+            <p class="text-center mt-3">Have an account? <a routerLink="/login" routerLinkActive="active">Log In</a></p>
+          </form>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

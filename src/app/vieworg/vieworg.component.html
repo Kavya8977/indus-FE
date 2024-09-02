@@ -1,0 +1,98 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded">
+          <div class="card-body container-fluid">
+            <div class="text-center mb-4">
+              <h2>View Company Details</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="companyCode" class="form-label"><b>Company Code:</b></label>
+                  <p class="form-control">{{org.companyCode}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="cin" class="form-label"><b>Corporate Identification Number:</b></label>
+                  <p class="form-control">{{org.cin}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="companyname" class="form-label"><b>Company Name:</b></label>
+                  <p class="form-control">{{org.companyname}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="registerNo" class="form-label"><b>Registration Number:</b></label>
+                  <p class="form-control">{{org.registerNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="dateOfIncorporation" class="form-label"><b>Date of Incorporation:</b></label>
+                  <p class="form-control">{{org.dateOfIncorporation}}</p>
+                </div>
+                <!-- <div class="mb-3">
+                  <label for="image" class="form-label"><b>Company Logo:</b></label>
+                  <p class="form-control">{{org.image}}</p>
+                </div> -->
+                
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="email" class="form-label"><b>Email Id:</b></label>
+                  <p class="form-control">{{org.email}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="telephoneNo" class="form-label"><b>Telephone Number:</b></label>
+                  <p class="form-control">{{org.telephoneNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="phoneNo" class="form-label"><b>Contact Number:</b></label>
+                  <p class="form-control">{{org.phoneNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="address" class="form-label"><b>Address:</b></label>
+                  <p class="form-control">{{org.address}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="city" class="form-label"><b>City:</b></label>
+                  <p class="form-control">{{org.city}}</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="state" class="form-label"><b>State:</b></label>
+                  <p class="form-control">{{org.state}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="pincode" class="form-label"><b>Pincode:</b></label>
+                  <p class="form-control">{{org.pincode}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="faxNo" class="form-label"><b>Fax Number:</b></label>
+                  <p class="form-control">{{org.faxNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="website" class="form-label"><b>Website:</b></label>
+                  <p class="form-control">{{org.website}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="active" class="form-label"><b>Active:</b></label>
+                  <p class="form-control">{{org?.active ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mb-3">
+              <a href="#" routerLink="/orglist" routerLinkActive="active" class="me-2">
+                <button type="button" class="btn btn-back">
+                  <i class='bx bx-arrow-back'></i> Back
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

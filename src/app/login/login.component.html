@@ -1,0 +1,69 @@
+<app-header></app-header>
+
+<body>
+  <form>
+    <section class="vh-50">
+      <div class="container py-10">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-xl-8">
+            <div class="card rounded-3xl">
+              <div class="row g-0">
+                <div class="col-md-5 col-lg-4 d-none d-md-block">
+                  <img src="assets/login2.jpg" alt="login form" class="img-fluid" title="Indus DigiLocker" height="100" />
+                </div>
+                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                  <div class="card-body text-black">
+
+                    <form [formGroup]="regForm">
+
+                      <div class="d-flex align-items-center">
+                        <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
+                        <img src="assets/icon.png" alt="">
+                        <span class="h1 fw-bold mb-0 no-wrap">Indus DigiLocker</span>
+                      </div>
+
+                      <h5 class="fw-normal" style="letter-spacing: 1px;color: #6c757d;">Sign into your account</h5>
+
+                      <div class="form-floating mb-3">
+                        <input type="email" name="email" class="form-control" formControlName="email" id="floatingInput"
+                          placeholder="name@example.com" required [(ngModel)]="signin.email">
+                        <label for="floatingInput">Enter Email Id</label>
+                        <div *ngIf="regForm.get('email').touched&&regForm.get('email').hasError('required')"
+                          style="color: red;">Email address</div>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="password" name="password" class="form-control" formControlName="password" id="floatingPassword"
+                          placeholder="Password" required [(ngModel)]="signin.password">
+                        <div *ngIf="regForm.get('password').touched&&regForm.get('password').hasError('required')"
+                          style="color: red;">Please Enter Email</div>
+                        <label for="floatingPassword">Password</label>
+                      </div>
+
+                      <div class="btn-container mb-4">
+                        <button class="btn btn-dark btn-lg btn-block small" (click)="onSubmit()" type="button">Login</button>
+                        <br>
+                        <div *ngIf="error" style="color: red; text-align: center;">{{error}}</div>
+                      </div>
+                      <div class="phn-log">
+                        <a href="phonelogin" routerLink="/phonelogin" routerLinkActive="active"
+                          class="small  text-muted" style="text-decoration: none;">Log in with Mobile Number</a>
+                        <a class="small text-muted mb-3" href="/forgotpassword">Forgot password?</a>
+                      </div>
+                      <p class="mb-4 pb-lg-2 small" style="color: #393f81;">Don't have an account? <a href="#!"
+                          routerLink="/register" routerLinkActive="active" style="color: #393f81;">Register here</a></p>
+
+                      <!-- <a href="#!" class="small text-muted">Privacy policy</a> -->
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script> -->
+  <app-footer></app-footer>
+</body>

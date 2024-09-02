@@ -1,0 +1,127 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+    <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+    <div class="content-area w-100">
+        <app-header></app-header>
+        <div class="main-content p-3">
+            <div class="container mt-4">
+                <div class="card mt-2 p-3 mb-1 bg-body rounded">
+                    <div class="card-body container-fluid">
+                        <div class="text-center mb-4">
+                            <h2>Income Tax Registration</h2>
+                        </div>
+                        <br>
+                        <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Name On PAN</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter Name" [(ngModel)]="tax.name" formControlName="name" name="name">
+                                        <div *ngIf="regForm.get('name').touched && regForm.get('name').hasError('required')" style="color: red;">
+                                    Enter Name
+                                  </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="dob" class="form-label">Date of Incorporation</label>
+                                        <input type="date" class="form-control" id="dob" placeholder="Enter Date of Incorporation" [(ngModel)]="tax.incorporationDate" formControlName="incorporationDate" name="dob">
+                                        <div *ngIf="regForm.get('incorporationDate').touched && regForm.get('incorporationDate').hasError('required')" style="color: red;">
+                                    Enter Date of Incorporation
+                                  </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userId" class="form-label">User Id</label>
+                                        <input type="text" class="form-control" id="userId" placeholder="Enter User Id" [(ngModel)]="tax.userid" formControlName="userid" name="userId">
+                                        <div *ngIf="regForm.get('userid').touched && regForm.get('userid').hasError('required')" style="color: red;">
+                                    Enter User Id
+                                  </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="primaryMobileNumber" class="form-label">Primary Mobile Number</label>
+                                        <input type="tel" class="form-control" id="primaryMobileNumber" placeholder="Enter Primary Mobile Number" [(ngModel)]="tax.primaryMobile" formControlName="primaryMobile" name="primaryMobileNumber" pattern="[0-9]{10}">
+                                        <div *ngIf="regForm.get('primaryMobile').touched && regForm.get('primaryMobile').hasError('required')" style="color: red;">
+                                    Enter Primary Mobile Number
+                                  </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="primaryEmail" class="form-label">Primary Email</label>
+                                        <input type="text" class="form-control" id="primaryEmail" placeholder="Enter Primary Email" [(ngModel)]="tax.primaryEmail" formControlName="primaryEmail" name="primaryEmail">
+                                        <div *ngIf="regForm.get('primaryEmail').touched && regForm.get('primaryEmail').hasError('required')" style="color: red;">
+                                    Enter Primary Email
+                                  </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="primarysignatory" class="form-label">Primary Signatory</label>
+                                        <input type="text" class="form-control" id="primarysignatory" placeholder="Enter Primary Signatory" [(ngModel)]="tax.primarysignatory" formControlName="primarysignatory" name="primarysignatory">
+                                        <div *ngIf="regForm.get('primarysignatory').touched && regForm.get('primarysignatory').hasError('required')" style="color: red;">
+                                    Enter Bank Name
+                                  </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="panNumber" class="form-label">PAN Number</label>
+                                        <input type="text" class="form-control" id="panNumber" placeholder="Enter PAN Number" [(ngModel)]="tax.panNumber" formControlName="panNumber" name="panNumber">
+                                        <div *ngIf="regForm.get('panNumber').touched && regForm.get('panNumber').hasError('required')" style="color: red;">
+                                    Enter PAN Number
+                                  </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="issuedDate" class="form-label">PAN Issued Date</label>
+                                        <input type="date" class="form-control" id="issuedDate" placeholder="Enter PAN Issued Date" [(ngModel)]="tax.panIssuedDate" formControlName="panIssuedDate" name="issuedDate">
+                                        <div *ngIf="regForm.get('panIssuedDate').touched && regForm.get('panIssuedDate').hasError('required')" style="color: red;">
+                                    Enter Pan Issued Date
+                                  </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="password" placeholder="Enter Password" [(ngModel)]="tax.password" formControlName="password" name="password">
+                                        <div *ngIf="regForm.get('password').touched && regForm.get('password').hasError('required')" style="color: red;">
+                                    Enter Password
+                                  </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="secondaryMobileNumber" class="form-label">Secondary Mobile Number</label>
+                                        <input type="tel" class="form-control" id="secondaryMobileNumber" placeholder="Enter Secondary Mobile Number" [(ngModel)]="tax.secondaryMobile" formControlName="secondaryMobile" name="secondaryMobileNumber" pattern="[0-9]{10}">
+                                        <div *ngIf="regForm.get('secondaryMobile').touched && regForm.get('secondaryMobile').hasError('required')" style="color: red;">
+                                    Enter Secondary Mobile
+                                  </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="secondaryEmail" class="form-label">Secondary Email</label>
+                                        <input type="text" class="form-control" id="secondaryEmail" placeholder="Enter Secondary Email" [(ngModel)]="tax.secondaryEmail" formControlName="secondaryEmail" name="secondaryEmail">
+                                        <div *ngIf="regForm.get('secondaryEmail').touched && regForm.get('secondaryEmail').hasError('required')" style="color: red;">
+                                    Enter Secondary Email
+                                  </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="secondarysignatory" class="form-label">Secondary Signatory</label>
+                                        <input type="text" class="form-control" id="secondarysignatory" placeholder="Enter Secondary Signatory" [(ngModel)]="tax.secondarysignatory" formControlName="secondarysignatory" name="secondarysignatory">
+                                        <div *ngIf="regForm.get('secondarysignatory').touched && regForm.get('secondarysignatory').hasError('required')" style="color: red;">
+                                    Enter Secondary Signatory
+                                  </div>
+                                    </div>
+                                    <div class="mb-2 mt-4">
+                                        <label for="active" class="form-label">Active:</label>&nbsp;
+                                        <input type="radio" name="active" id="yes" [(ngModel)]="tax.active" formControlName="active" value=true> Yes&nbsp;
+                                        <input type="radio" name="active" id="no" [(ngModel)]="tax.active" formControlName="active" value=false> No
+                                        <div *ngIf="regForm.get('active').touched && regForm.get('active').hasError('required')" style="color: red;">
+                                            Select Active status
+                                  </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mb-3">
+                                <a href="#" routerLink="/incometaxlist" routerLinkActive="active" class="me-2">
+                                    <button type="button" class="btn btn-back">
+                                        <i class='bx bx-arrow-back'></i> Back
+                                    </button>
+                                </a>
+                                <button type="submit" class="btn btn-primary" [disabled]="regForm.invalid" >Submit</button>
+                            </div>
+                        </form><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

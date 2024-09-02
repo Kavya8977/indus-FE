@@ -1,0 +1,69 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded">
+          <div class="card-body container-fluid">
+            <div class="text-center mb-4">
+              <h2>View Employees’ State Insurance Details</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="employeeCode" class="form-label"><b>Employer's Code:</b></label>
+                  <p class="form-control">{{esi.employerCodeNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="employeeName" class="form-label"><b>Employer's Name:</b></label>
+                  <p class="form-control">{{esi.employerName}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="lin" class="form-label"><b>Labour Identification Number:</b></label>
+                  <p class="form-control">{{esi.lin}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="ro" class="form-label"><b>State/Regional Offices:</b></label>
+                  <p class="form-control">{{esi.ro}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="userid" class="form-label"><b>User Id:</b></label>
+                  <p class="form-control">{{esi.userid}}</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="email" class="form-label"><b>Email Id:</b></label>
+                  <p class="form-control">{{esi.emailId}}</p>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="mobileno" class="form-label"><b>Mobile Number:</b></label>
+                  <p class="form-control">{{esi.mobileNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="signatory" class="form-label"><b>Signatory:</b></label>
+                  <p class="form-control">{{esi.signatory}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="active" class="form-label"><b>Active:</b></label>
+                  <p class="form-control">{{esi?.active ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+               
+            </div>
+            <div class="text-center mb-3">
+              <a href="#" routerLink="/esilist" routerLinkActive="active" class="me-2">
+                <button type="button" class="btn btn-back">
+                  <i class='bx bx-arrow-back'></i> Back
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

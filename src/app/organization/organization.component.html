@@ -1,0 +1,82 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded shadow-sm">
+          <div class="card-body container-fluid">
+             
+            <nav class="navbar navbar-light bg-light rounded mb-4 search-bar">
+              <div class="container-fluid">
+                <h4 class="card-title mb-0">Organization List:</h4>
+                <form class="d-flex mb-1">
+                  <mat-form-field class="example-full-width flex-grow-1">
+                    <mat-label>Search</mat-label>
+                    <input matInput [(ngModel)]="searchQuery" (keyup)="applyFilter($event)" placeholder="Search"
+                      aria-label="Search" name="searchQuery" />
+                    <button mat-icon-button matSuffix class="text-dark">
+                      <mat-icon>search</mat-icon>
+                    </button>
+                  </mat-form-field>
+                </form>
+              </div>
+            </nav>
+            <div class="table-responsive rounded">
+              <table class="table table-bordered table-hover">
+                <thead class="table-secondary text-center">
+                  <tr>
+                    <th style="background-color: #b1d3ea;" scope="col">Corporate Identification Number</th>
+                    <th style="background-color: #b1d3ea;" scope="col">Company Name</th>
+                    <th style="background-color: #b1d3ea;" scope="col">Email Id</th>
+                    <!-- <th scope="col">Password</th> -->                    
+                    <th style="background-color: #b1d3ea;" scope="col">View</th>
+                    <th style="background-color: #b1d3ea;" scope="col">Edit</th>
+                    <th style="background-color: #b1d3ea;" scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let organizations of organizationdetails | filter : searchQuery">
+                    <ng-container *ngIf="organizations.active">
+                    <td>{{ organizations.cin }}</td>
+                    <td>{{ organizations.companyname }}</td>
+                    <td>{{ organizations.email }}</td>
+                    <!-- <td>{{ organizations.Password}}</td> -->
+                    <td class="text-center">
+                      <span (click)="organizationView(organizations.companyid)" class=" text-primary"><strong style="font-size: 30px;">
+                        <i class="bi bi-eye-slash-fill"></i></strong>
+                      </span>
+                    </td>
+                    <td class="text-center">
+                      <span (click)="updateOrganization(organizations.companyid)" class=" text-info ml-2" style="font-size: 24px;">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </span>
+                    </td>
+                    <td class="text-center">
+                      <span (click)="deleteOrganization(organizations.companyid)" class=" text-danger ml-2" style="font-size: 24px;">
+                        <i class="fa-solid fa-trash"></i>
+                      </span>
+                    </td>
+                    
+                    </ng-container>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+              aria-label="Select page of periodic elements"></mat-paginator>
+              <div class="text-start mt-4">
+                <button type="button" class="btn btn-secondary add-new-button"
+                  style="background-color: rgba(57, 63, 129, 1);">
+                  <a class="navbar-brand text-light" href="#" routerLink="/addorg" routerLinkActive="active">
+                    <i class="fa-solid fa-circle-plus"></i>&nbsp;Add New
+                  </a>
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

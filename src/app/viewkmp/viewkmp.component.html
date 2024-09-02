@@ -1,0 +1,81 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+    <app-header></app-header>
+    <div class="main-content p-3">
+      <div class="container mt-4">
+        <div class="card bg-body rounded">
+          <div class="card-body container-fluid">
+            <div class="text-center mb-4">
+              <h2>View Key Managerial Personnel Details</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="name" class="form-label"><b>KMP Name:</b></label>
+                  <p class="form-control">{{kmp.name}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="city" class="form-label"><b>Designation:</b></label>
+                  <p class="form-control">{{kmp.designation}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="panNo" class="form-label"><b>PAN Number:</b></label>
+                  <p class="form-control">{{kmp.panNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="aadharNo" class="form-label"><b>Aadhar Number:</b></label>
+                  <p class="form-control">{{kmp.aadharNo}}</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="passportNo" class="form-label"><b>Passport Number:</b></label>
+                  <p class="form-control">{{kmp.passportNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="address" class="form-label"><b>Address:</b></label>
+                  <p class="form-control">{{kmp.address}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="state" class="form-label"><b>State:</b></label>
+                  <p class="form-control">{{kmp.state}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label"><b>Email Id:</b></label>
+                  <p class="form-control">{{kmp.email}}</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="mobileno" class="form-label"><b>Mobile Number:</b></label>
+                  <p class="form-control">{{kmp.mobileNo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="resume" class="form-label"><b>Resume:</b></label>
+                  <p class="form-control">{{kmp.resume}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="photo" class="form-label"><b>Photo:</b></label>
+                  <p class="form-control">{{kmp.photo}}</p>
+                </div>
+                <div class="mb-3">
+                  <label for="active" class="form-label"><b>Active:</b></label>
+                  <p class="form-control">{{kmp?.active ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mb-3">
+              <a href="#" routerLink="/kmplist" routerLinkActive="active" class="me-2">
+                <button type="button" class="btn btn-back">
+                  <i class='bx bx-arrow-back'></i> Back
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

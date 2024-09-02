@@ -1,0 +1,69 @@
+
+<div class="sidebar" [class.collapsed]="collapsed">
+
+  <div class="nav_logo text-center mb-3 flex">
+    <img src="/assets/icon.png" [class.nav_logo-img-collapsed]="collapsed" [class.nav_logo-img-expanded]="!collapsed" alt="E L" />
+  </div>
+  <div class="nav_list flex-grow-1">
+    <a [routerLink]="['/home', id]" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-home nav_icon"></i>
+      <span class="nav_name ml-2">Home</span>
+    </a>
+    <a routerLink="/bankotp" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-university nav_icon"></i>
+      <span class="nav_name ml-2">Banks</span>
+    </a>
+    <a routerLink="/mcalist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-building nav_icon"></i>
+      <span class="nav_name ml-2">MCA</span>
+    </a>
+    <a routerLink="/incometaxlist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-calculator nav_icon"></i>
+      <span class="nav_name ml-2">Income Tax</span>
+    </a>
+    <a routerLink="/tdslist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-file-invoice-dollar nav_icon"></i>
+      <span class="nav_name ml-2">TDS</span>
+    </a>
+    <a routerLink="/gstlist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-file-alt nav_icon"></i>
+      <span class="nav_name ml-2">GST</span>
+    </a>
+    <a routerLink="/epflist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-clipboard-list nav_icon"></i>
+      <span class="nav_name ml-2">EPF</span>
+    </a>
+    <a routerLink="/esilist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-medkit nav_icon"></i>
+      <span class="nav_name ml-2">ESI</span>
+    </a>
+    <a routerLink="/ptlist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-briefcase nav_icon"></i>
+      <span class="nav_name ml-2">Professional Tax</span>
+    </a>
+    <a routerLink="/directorlist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-users nav_icon"></i>
+      <span class="nav_name ml-2">Directors</span>
+    </a>
+    <a routerLink="/kmplist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-user-tie nav_icon"></i>
+      <span class="nav_name ml-2">KMP</span>
+    </a>
+    <a routerLink="/orglist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-building nav_icon"></i>
+      <span class="nav_name ml-2">Corporate</span>
+    </a>
+    <a routerLink="/companylist" routerLinkActive="active" class="nav_link d-flex align-items-center">
+      <i class="fas fa-exchange-alt nav_icon"></i>
+      <span class="nav_name ml-2">Change Company</span>
+    </a>
+  </div>
+  <a routerLink="/login" (click)="logout()" routerLinkActive="active" class="nav_link d-flex align-items-center">
+    <i class="fas fa-sign-out-alt nav_icon"></i>
+    <span class="nav_name ml-2">SignOut</span>
+  </a>
+  <div class="navbar-toggler mt-3" (click)="toggleHeader()">
+    <i class="fas" [ngClass]="{'fa-chevron-left': !collapsed, 'fa-chevron-right': collapsed}"></i>
+  </div>
+  <br><br>
+</div>

@@ -1,0 +1,88 @@
+.sidebar {
+  background-color: black;
+  color: #fff;
+  width: 250px;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.nav_logo img {
+  max-width: 100%;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.nav_logo-img-collapsed {
+  display: none;
+}
+
+.nav_logo-img-expanded {
+  display: block;
+}
+
+.collapsed .nav_logo-img-collapsed {
+  display: block;
+}
+
+.collapsed .nav_logo-img-expanded {
+  display: none;
+}
+
+.nav_list {
+  flex-grow: 1;
+}
+
+.nav_link {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: #adb5bd;
+  margin: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.nav_link.active,
+.nav_link:hover {
+  background-color: rgba(57, 63, 129, 1);
+  border-radius: 15px;
+}
+
+.nav_icon {
+  margin-right: 10px;
+}
+
+.collapsed .nav_icon {
+  margin-right: 0;
+}
+
+.nav_name {
+  transition: opacity 0.3s;
+}
+
+.collapsed .nav_name {
+  opacity: 0;
+}
+
+.navbar-toggler {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-toggler i {
+  font-size: 1.5rem;
+}

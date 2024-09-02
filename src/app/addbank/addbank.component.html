@@ -1,0 +1,281 @@
+
+<div class="d-flex" [class.collapsed]="collapsed">
+  <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+  <div class="content-area w-100">
+      <app-header></app-header>
+      <div class="main-content p-3">
+          <div class="container mt-4">
+              <div class="card bg-body rounded">
+                  <div class="card-body container-fluid">
+                      <div class="text-center mb-4">
+                          <h2>Bank Registration</h2>
+                      </div>
+                      <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+                          <div class="row">
+                              <div class="col-md-4">
+                                <div class="mb-3">
+                                  <label for="state" class="form-label">Bank Name</label>
+                                  <input type="text" class="form-control" id="state" placeholder="Enter Bank Name"
+                                    [(ngModel)]="bank.bankName" formControlName="bankName" name="state">
+                                  <div *ngIf="regForm.get('bankName').touched && regForm.get('bankName').hasError('required')" style="color: red;">
+                                    Enter Bank Name
+                                  </div>
+                                </div>
+                              <div class="mb-3">
+                                <label for="accountType" class="form-label">Account Type</label>
+                                <select
+                                  class="form-select"
+                                  name="accountType"
+                                  formControlName="accountType"
+                                  [(ngModel)]="bank.accountType" 
+                                  
+                                >
+                                  <option disabled selected>--Select--</option>
+                                  <option value="Current Account">Current Account</option>
+                                  <option value="Loan Account">Loan Account</option>
+                                  <option value="OverDraft Account">OverDraft Account</option>
+                                  <option value="Bankgrantity Account">Bank Guarantee Account</option>
+                                  <option value="Demat/Trading Account">Demat/Trading Account</option>
+                                </select>
+                                <div *ngIf="regForm.get('accountType').touched && regForm.get('accountType').hasError('required')" class="text-danger">
+                                  Account Type is required.
+                                </div>
+                              </div>
+                              <div class="mb-3">
+                                <label for="ifccode" class="form-label">IFSC Code</label>
+                                <input
+                                  type="text"
+                                  name="ifccode"
+                                  class="form-control"
+                                  id="ifccode"
+                                  placeholder="Enter IFSC"
+                                  formControlName="ifccode"
+                                  [(ngModel)]="bank.ifccode"
+                                />
+                                <div *ngIf="regForm.get('ifccode').touched && regForm.get('ifccode').hasError('required')" class="text-danger">
+                                  IFSC Code is required.
+                                </div>
+                              </div>
+                              <div class="mb-3">
+                                <label for="accountHolderName" class="form-label">Account Holder Name</label>
+                                <input
+                                  type="text"
+                                  name="accountHolderName"
+                                  class="form-control"
+                                  id="accountHolderName"
+                                  placeholder="Enter Account Holder Name"
+                                  formControlName="accountHolderName"
+                                  [(ngModel)]="bank.accountHolderName"
+                                />
+                                <div *ngIf="regForm.get('accountHolderName').touched && regForm.get('accountHolderName').hasError('required')" class="text-danger">
+                                  Account Holder Name is required.
+                                </div>
+                              </div>
+                              <div class="mb-3">
+                                <label for="bankAccountNumber" class="form-label">Account Number</label>
+                                <input
+                                  type="number"
+                                  name="bankAccountNumber"
+                                  class="form-control"
+                                  id="bankAccountNumber"
+                                  placeholder="Enter Account Number"
+                                  formControlName="bankAccountNumber"
+                                  [(ngModel)]="bank.bankAccountNumber"
+                                  />
+                                <div *ngIf="regForm.get('bankAccountNumber').touched && regForm.get('bankAccountNumber').hasError('required')" class="text-danger">
+                                  Account Number is required.
+                                </div>
+                              </div>
+                              
+
+                              </div>
+                              <div class="col-md-4">
+                                <div class="mb-3">
+                                  <label for="email" class="form-label">Email Id</label>
+                                  <input
+                                    type="email"
+                                    name="email"
+                                    class="form-control"
+                                    id="email"
+                                    placeholder="Enter Email Id"
+                                    formControlName="email"
+                                    [(ngModel)]="bank.email"
+                                    />
+                                  <div *ngIf="regForm.get('email').touched && regForm.get('email').hasError('required')" class="text-danger">
+                                    Enter a valid Email Id.
+                                  </div>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="mobileNo" class="form-label">Mobile Number</label>
+                                  <input
+                                    type="tel"
+                                    name="mobileNo"
+                                    class="form-control"
+                                    id="mobileNo"
+                                    placeholder="Enter Mobile Number"
+                                    formControlName="mobileNo"
+                                    [(ngModel)]="bank.mobileNo"
+                                    />
+                                  <div *ngIf="regForm.get('mobileNo').touched && regForm.get('mobileNo').hasError('required')" class="text-danger">
+                                    Enter a valid 10-digit Mobile Number.
+                                  </div>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="loginid" class="form-label">Login Id</label>
+                                  <input
+                                    type="text"
+                                    name="loginid"
+                                    class="form-control"
+                                    id="loginid"
+                                    placeholder="Enter Login Id"
+                                    formControlName="loginid"
+                                    [(ngModel)]="bank.loginid"
+                                    />
+                                  <div *ngIf="regForm.get('loginid').touched && regForm.get('loginid').hasError('required')" class="text-danger">
+                                    Login Id is required.
+                                  </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                  <label for="primarysignatory" class="form-label">Primary Signatory (Above 2500000)</label>
+                                  <input
+                                    type="text"
+                                    name="primarysignatory"
+                                    class="form-control"
+                                    id="primarysignatory"
+                                    placeholder="Enter Primary Signatory"
+                                    formControlName="primarysignatory"
+                                    [(ngModel)]="bank.primarysignatory"
+                                    />
+                                  <div *ngIf="regForm.get('primarysignatory').touched && regForm.get('primarysignatory').hasError('required')" class="text-danger">
+                                    Primary Signatory is required.
+                                  </div>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="branch" class="form-label">Branch</label>
+                                  <input
+                                    type="text"
+                                    name="branch"
+                                    class="form-control"
+                                    id="branch"
+                                    placeholder="Enter Branch"
+                                    formControlName="branch"
+                                    [(ngModel)]="bank.branch"
+                                    />
+                                  <div *ngIf="regForm.get('branch').touched && regForm.get('branch').hasError('required')" class="text-danger">
+                                    Branch is required.
+                                  </div>
+                                </div>
+                                   
+                              </div>
+                              <div class="col-md-4">
+                                <div class="mb-3">
+                                  <label for="mcircode" class="form-label"> MICR Code</label>
+                                  <input
+                                    type="text"
+                                    name="mcircode"
+                                    class="form-control"
+                                    id="mcircode"
+                                    placeholder="Enter MICR Code"
+                                    formControlName="mcircode"
+                                    [(ngModel)]="bank.mcircode"
+                                    />
+                                  <div *ngIf="regForm.get('mcircode').touched && regForm.get('mcircode').hasError('required')" class="text-danger">
+                                    MCIR Code is required.
+                                  </div>
+                                </div>
+                                 
+                                <div class="mb-3">
+                                  <label for="loginpassword" class="form-label">Login Password</label>
+                                  <input
+                                    type="password"
+                                    name="loginpassword"
+                                    class="form-control"
+                                    id="loginpassword"
+                                    placeholder="Enter Login Password"
+                                    formControlName="loginpassword"
+                                    [(ngModel)]="bank.loginpassword"
+                                    />
+                                  <div *ngIf="regForm.get('loginpassword').touched && regForm.get('loginpassword').hasError('required')" class="text-danger">
+                                    Login Password is required.
+                                  </div>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="transpassword" class="form-label">Transaction Password</label>
+                                  <input
+                                    type="password"
+                                    name="transpassword"
+                                    class="form-control"
+                                    id="transpassword"
+                                    placeholder="Enter Transaction password"
+                                    formControlName="transpassword"
+                                    [(ngModel)]="bank.transpassword"
+                                    />
+                                  <div *ngIf="regForm.get('transpassword').touched && regForm.get('transpassword').hasError('required')" class="text-danger">
+                                    Transaction Password is required.
+                                  </div>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="secondarysignatory" class="form-label">Secondary Signatory (Upto 2500000)</label>
+                                  <input
+                                    type="text"
+                                    name="secondarysignatory"
+                                    class="form-control"
+                                    id="secondarysignatory"
+                                    placeholder="Enter Secondary Signatory"
+                                    formControlName="secondarysignatory"
+                                    [(ngModel)]="bank.secondarysignatory"
+                                    />
+                                  <div *ngIf="regForm.get('secondarysignatory').touched && regForm.get('secondarysignatory').hasError('required')" class="text-danger">
+                                    Secondary Signatory is required.
+                                  </div>
+                                </div>
+                                
+                                <div class="mb-2 mt-4">
+                                  <label for="active" class="form-label">Active:</label>&nbsp;
+                                  <input
+                                    type="radio"
+                                    name="active"
+                                    id="yes"
+                                    [(ngModel)]="bank.active"
+                                    value=true
+                                    formControlName="active"
+                                  />
+                                  Yes&nbsp;
+                                  <input
+                                    type="radio"
+                                    name="active"
+                                    id="no"
+                                    [(ngModel)]="bank.active"
+                                    value=false
+                                    formControlName="active"
+                                  />
+                                  No
+                                  <div *ngIf="regForm.get('active').touched && regForm.get('active').hasError('required')" style="color: red;">
+                                    Select Active status
+                                  </div>
+                                </div>
+                                   
+                              </div>
+                          </div>
+                          <div class="text-center mb-3">
+                              <a href="#" routerLink="/banklist" routerLinkActive="active" class="me-2">
+                                  <button type="button" class="btn btn-back">
+                                      <i class='bx bx-arrow-back'></i> Back
+                                  </button>
+                              </a>
+                              <button type="submit" class="btn btn-submit" [disabled]="regForm.invalid">Submit</button>
+                          </div>
+                      </form><br>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+
+
+

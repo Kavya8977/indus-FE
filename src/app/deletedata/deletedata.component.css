@@ -1,0 +1,27 @@
+.delete-card {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .title-center {
+   /* margin-left: 200px; */
+  }
+  .buttons{
+    justify-content: space-around;
+  }
+  
+  mat-card-title {
+    font-size: 1.5em;
+    margin-left: 50px;
+  }
+  
+  mat-card-content {
+    margin-bottom: 16px;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  

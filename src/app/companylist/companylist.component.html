@@ -1,0 +1,28 @@
+<app-header></app-header>
+<section class="main">
+    <h1 class="text-center text-bold">
+        <span>C</span><span>O</span><span>M</span><span>P</span><span>A</span><span>N</span><span>Y</span>
+        &nbsp;&nbsp;<span>L</span><span>I</span><span>S</span><span>T</span>
+    </h1>
+    <!-- <div class="container"  > 
+            <div class="item1"  *ngFor="let companies of company" [routerLink]="['/home', companies.companyid]" ><h2>{{companies.companyname}}</h2></div>
+            <div class="item1" routerLink="/addorg" routerLinkActive="active"><i class='bx bx-plus-medical' style="font-size: 50px;"></i><h2>ADD NEW</h2></div>
+        </div> -->
+
+    <div class="choose">
+        <div class="company">
+            <div class="comp">
+                <div class="comp-avatar">
+                    <div class="item1" *ngFor="let companies of company" [routerLink]="['/home', companies.companyid]" (click)="storeid(companies.companyid)">
+                        <h2>{{companies.companyname}}</h2>
+                    </div>
+                    <div class="item1" routerLink="/addorg" routerLinkActive="active"><i class='bx bx-plus-medical'
+                            style="font-size: 50px;"></i>
+                        <h2>ADD NEW</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><br><br>
+<app-footer></app-footer>

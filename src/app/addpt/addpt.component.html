@@ -1,0 +1,113 @@
+<div class="d-flex" [class.collapsed]="collapsed">
+    <app-navbar (toggle)="toggleSidebar()"></app-navbar>
+    <div class="content-area w-100">
+      <app-header></app-header>
+      <div class="main-content p-3">
+        <div class="container mt-4">
+          <div class="card mt-2 p-3 mb-1 bg-body rounded">
+            <div class="card-body container-fluid">
+              <div class="text-center mb-4">
+                <h2>Professional Tax Registration</h2>
+              </div>
+              <br>
+              <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="ptinSal" class="form-label">PTIN Salary</label>
+                      <input type="text" class="form-control" id="ptinSal" placeholder="Enter PTIN Salary" [(ngModel)]="pt.ptinSal" formControlName="ptinSal" name="ptinSal">
+                      <div *ngIf="regForm.get('ptinSal').touched && regForm.get('ptinSal').hasError('required')" style="color: red;">
+                        Enter PTIN Salary
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="ptinCom" class="form-label">PTIN Company</label>
+                      <input type="text" class="form-control" id="ptinCom" placeholder="Enter PTIN Company" [(ngModel)]="pt.ptinCom" formControlName="ptinCom" name="ptinCom">
+                      <div *ngIf="regForm.get('ptinCom').touched && regForm.get('ptinCom').hasError('required')" style="color: red;">
+                        Enter PTIN Company
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="taxDivision" class="form-label">Tax Division</label>
+                      <input type="text" class="form-control" id="taxDivision" placeholder="Enter Tax Division" [(ngModel)]="pt.taxDivision" formControlName="taxDivision" name="taxDivision">
+                      <div *ngIf="regForm.get('taxDivision').touched && regForm.get('taxDivision').hasError('required')" style="color: red;">
+                        Enter Tax Division
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="taxCircle" class="form-label">Tax Circle</label>
+                      <input type="text" class="form-control" id="taxCircle" placeholder="Enter Tax Circle" [(ngModel)]="pt.taxCircle" formControlName="taxCircle" name="taxCircle">
+                      <div *ngIf="regForm.get('taxCircle').touched && regForm.get('taxCircle').hasError('required')" style="color: red;">
+                        Enter Tax Circle
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="mobileNo" class="form-label">Mobile Number</label>
+                      <input type="tel" class="form-control" id="mobileNo" placeholder="Enter Mobile Number" [(ngModel)]="pt.mobileNo" formControlName="mobileNo" name="mobileNo">
+                      <div *ngIf="regForm.get('mobileNo').touched && regForm.get('mobileNo').hasError('required')" style="color: red;">
+                        Enter Mobile Number
+                      </div>
+                      <div *ngIf="regForm.get('mobileNo').touched && regForm.get('mobileNo').hasError('pattern')" style="color: red;">
+                        Enter a valid Mobile Number
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email" placeholder="Enter Email ID" [(ngModel)]="pt.email" formControlName="email" name="email">
+                      <div *ngIf="regForm.get('email').touched && regForm.get('email').hasError('required')" style="color: red;">
+                        Enter Email ID
+                      </div>
+                      <div *ngIf="regForm.get('email').touched && regForm.get('email').hasError('email')" style="color: red;">
+                        Enter a valid Email ID
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="dateOfEnrollment" class="form-label">Date of Enrollment</label>
+                      <input type="date" class="form-control" id="dateOfEnrollment" placeholder="Enter Date of Enrollment" [(ngModel)]="pt.dateOfEnrollment" formControlName="dateOfEnrollment" name="dateOfEnrollment">
+                      <div *ngIf="regForm.get('dateOfEnrollment').touched && regForm.get('dateOfEnrollment').hasError('required')" style="color: red;">
+                        Enter Date of Enrollment
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="userid" class="form-label">User ID</label>
+                      <input type="text" class="form-control" id="userid" placeholder="Enter User ID" [(ngModel)]="pt.userid" formControlName="userid" name="userid">
+                      <div *ngIf="regForm.get('userid').touched && regForm.get('userid').hasError('required')" style="color: red;">
+                        Enter User ID
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="password" placeholder="Enter Password" [(ngModel)]="pt.password" formControlName="password" name="password">
+                      <div *ngIf="regForm.get('password').touched && regForm.get('password').hasError('required')" style="color: red;">
+                        Enter Password
+                      </div>
+                    </div>
+                    <div class="mb-2 mt-4">
+                      <label for="active" class="form-label">Active:</label>&nbsp;
+                      <input type="radio" name="active" id="yes" [(ngModel)]="pt.active" formControlName="active" value=true> Yes&nbsp;
+                      <input type="radio" name="active" id="no" [(ngModel)]="pt.active" formControlName="active" value=false> No
+                      <div *ngIf="regForm.get('active').touched && regForm.get('active').hasError('required')" style="color: red;">
+                        Select Active status
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mb-3">
+                  <a href="#" routerLink="/ptlist" routerLinkActive="active" class="me-2">
+                    <button type="button" class="btn btn-back">
+                      <i class='bx bx-arrow-back'></i> Back
+                    </button>
+                  </a>
+                  <button type="submit" class="btn btn-primary" [disabled]="regForm.invalid">Submit</button>
+                </div>
+              </form><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+  
